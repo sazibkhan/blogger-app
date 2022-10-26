@@ -1,0 +1,27 @@
+### UserController::createUser
+POST http://localhost:8080/api/v1/users
+Content-Type: application/json
+
+{
+    "username":"Jamal Khan",
+    "email":"sazib@khan",
+    "gender":"Mail"
+}
+
+
+### BookController::getUserLest
+POST http://localhost:8080/api/v1/users
+Content-Type: application/json
+
+### BookController::getUserById
+POST http://localhost:8080/api/v1/users/3
+Content-Type: application/json
+
+
+### BookController::updateUser
+POST http://localhost:8080/api/v1/users/3
+Content-Type: application/json
+
+### BookController::deleteUser
+POST http://localhost:8080/api/v1/users/3
+Content-Type: application/json

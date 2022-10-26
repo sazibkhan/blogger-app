@@ -1,0 +1,26 @@
+### BookController::createBook
+POST http://localhost:8080/api/v1/books
+Content-Type: application/json
+
+{
+"bookName":"Java Book",
+"bookPrice":5222,
+"bookDescription":"Good"
+}
+
+### BookController::getBookLest
+POST http://localhost:8080/api/v1/books
+Content-Type: application/json
+
+### BookController::getBookById
+POST http://localhost:8080/api/v1/books/1
+Content-Type: application/json
+
+
+### BookController::updateBook
+POST http://localhost:8080/api/v1/books/1
+Content-Type: application/json
+
+### BookController::deleteBook
+POST http://localhost:8080/api/v1/books/1
+Content-Type: application/json
