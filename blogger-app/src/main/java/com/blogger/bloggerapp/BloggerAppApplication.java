@@ -8,7 +8,6 @@ public class BloggerAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BloggerAppApplication.class, args);
-		System.out.println("Successfull.....!");
 	}
 
 }
