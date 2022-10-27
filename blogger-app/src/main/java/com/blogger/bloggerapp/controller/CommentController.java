@@ -18,6 +18,8 @@ import java.util.List;
 public class CommentController {
 
     private  final CommentService commentService;
+
+
     @PostMapping
     public RestResponse createComment(@RequestBody CommentDTO commentDTO){
         commentService.createComment(commentDTO);
@@ -25,28 +27,28 @@ public class CommentController {
     }
 
 
-    @GetMapping("{id}")
-    public CommentRest getCommentById(@PathVariable Long id) {
-
-        return commentService.getCommentById(id);
-    }
-
-    @PutMapping("{id}")
-    public void updateCommentById(@PathVariable Long id, @RequestBody CommentDTO commentDTO) {
-
-        commentService.updateComment(id, commentDTO);
-    }
-
-    @DeleteMapping("{id}")
-    public void deleteCommentById(@PathVariable Long id) {
-
-        commentService.deleteCommitById(id);
-    }
-
-
-    @GetMapping
-    public RestResponse getCommentList() {
-        return ResponseFactory.responseData(commentService.getCommentList());
-    }
+//    @GetMapping("{id}")
+//    public CommentRest getCommentById(@PathVariable Long id) {
+//
+//        return commentService.getCommentById(id);
+//    }
+//
+//    @PutMapping("{id}")
+//    public void updateCommentById(@PathVariable Long id, @RequestBody CommentDTO commentDTO) {
+//
+//        commentService.updateComment(id, commentDTO);
+//    }
+//
+//    @DeleteMapping("{id}")
+//    public void deleteCommentById(@PathVariable Long id) {
+//
+//        commentService.deleteCommitById(id);
+//    }
+//
+//
+//    @GetMapping
+//    public RestResponse getCommentList() {
+//        return ResponseFactory.responseData(commentService.getCommentList());
+//    }
 
 }

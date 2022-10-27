@@ -36,53 +36,53 @@ public class PostService {
         postRepository.save(postEntity);
 
     }
-    public PostRest getPostById(Long id) {
-
-        var postEntity = entityValidationService.validatePost(id);
-
-        var response = new PostRest();
-        BeanUtils.copyProperties(postEntity, response);
-        return response;
-    }
-
-    public void updatePost(Long id, PostDTO postDTO) {
-
-        var postEntity = entityValidationService.validatePost(id);
-        var bookEntity = entityValidationService.validateBook(postDTO.getBookId());
-
-        postEntity.setPostTitle(postDTO.getPostTitle());
-        postEntity.setPostBody(postDTO.getPostBody());
-        postEntity.setBookEntity(bookEntity);
-
-        postRepository.save(postEntity);
-    }
-
-    public void deletePostById(Long id) {
-
-        var postEntity = entityValidationService.validatePost(id);
-
-        postRepository.deleteById(postEntity.getId());
-
-    }
-
-
-    public List<PostRest> getPostList() {
-
-        return postRepository.findAll().stream()
-                .map(itm -> getPostRest(itm))
-                .sorted(Comparator.comparing(PostRest::getPostTitle))
-                .collect(Collectors.toList());
-    }
+//    public PostRest getPostById(Long id) {
+//
+//        var postEntity = entityValidationService.validatePost(id);
+//
+//        var response = new PostRest();
+//        BeanUtils.copyProperties(postEntity, response);
+//        return response;
+//    }
+//
+//    public void updatePost(Long id, PostDTO postDTO) {
+//
+//        var postEntity = entityValidationService.validatePost(id);
+//        var bookEntity = entityValidationService.validateBook(postDTO.getBookId());
+//
+//        postEntity.setPostTitle(postDTO.getPostTitle());
+//        postEntity.setPostBody(postDTO.getPostBody());
+//        postEntity.setBookEntity(bookEntity);
+//
+//        postRepository.save(postEntity);
+//    }
+//
+//    public void deletePostById(Long id) {
+//
+//        var postEntity = entityValidationService.validatePost(id);
+//
+//        postRepository.deleteById(postEntity.getId());
+//
+//    }
 
 
-    private PostRest getPostRest(PostEntity itm) {
-        var res = new PostRest();
-        BeanUtils.copyProperties(itm, res);
-        Optional.ofNullable(itm.getBookEntity())
-                .ifPresent(book -> {
-                    res.setBookId(book.getId());
-                });
-        return res;
-    }
+//    public List<PostRest> getPostList() {
+//
+//        return postRepository.findAll().stream()
+//                .map(itm -> getPostRest(itm))
+//                .sorted(Comparator.comparing(PostRest::getPostTitle))
+//                .collect(Collectors.toList());
+//    }
+//
+//
+//    private PostRest getPostRest(PostEntity itm) {
+//        var res = new PostRest();
+//        BeanUtils.copyProperties(itm, res);
+//        Optional.ofNullable(itm.getBookEntity())
+//                .ifPresent(book -> {
+//                    res.setBookId(book.getId());
+//                });
+//        return res;
+//    }
 
 }
