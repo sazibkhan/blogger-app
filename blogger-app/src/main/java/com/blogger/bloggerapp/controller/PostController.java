@@ -29,12 +29,12 @@ public class PostController {
         return ResponseFactory.responseData(postService.getPostList());
     }
 
-//
-//    @GetMapping("{id}")
-//    public PostRest getPostById(@PathVariable Long id) {
-//
-//        return postService.getPostById(id);
-//    }
+
+    @GetMapping("{id}")
+    public PostRest getPostById(@PathVariable Long id) {
+
+        return postService.getPostById(id);
+    }
 //
 //    @PutMapping("{id}")
 //    public void updatePostById(@PathVariable Long id, @RequestBody PostDTO postDTO ) {

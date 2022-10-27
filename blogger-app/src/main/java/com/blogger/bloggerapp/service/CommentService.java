@@ -34,14 +34,14 @@ public class CommentService {
         commentRepository.save(commentEntity);
     }
 
-//    public CommentRest getCommentById(Long id) {
-//
-//        var commentEntity = entityValidationService.validateComment(id);
-//
-//        var response = new CommentRest();
-//        BeanUtils.copyProperties(commentEntity, response);
-//        return response;
-//    }
+    public CommentRest getCommentById(Long id) {
+
+        var commentEntity = entityValidationService.validateComment(id);
+
+        var response = new CommentRest();
+        BeanUtils.copyProperties(commentEntity, response);
+        return response;
+    }
 //
 //    public void updateComment(Long id, CommentDTO commentDTO) {
 //

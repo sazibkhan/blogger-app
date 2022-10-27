@@ -1,7 +1,7 @@
 
 
-### CommentController::createPost
-POST http://localhost:8080/api/v1/posts
+### CommentController::createComment
+POST http://localhost:8080/api/v1/comments
 Content-Type: application/json
 
 {
@@ -12,18 +12,9 @@ Content-Type: application/json
 
 
 ### CommentController::getCommentList
-GET http://localhost:8080/api/v1/posts
+GET http://localhost:8080/api/v1/comments
 Content-Type: application/json
 
 ### CommentController::getCommentById
-GET http://localhost:8080/api/v1/posts/1
-Content-Type: application/json
-
-### CommentController::updateCommentById
-UPDATE http://localhost:8080/api/v1/posts/1
-Content-Type: application/json
-
-
-### CommentController::deleteCommentById
-DELETE http://localhost:8080/api/v1/posts/1
+GET http://localhost:8080/api/v1/comments/2
 Content-Type: application/json

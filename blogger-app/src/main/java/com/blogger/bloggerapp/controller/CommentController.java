@@ -25,13 +25,17 @@ public class CommentController {
         commentService.createComment(commentDTO);
         return  ResponseFactory.saveSuccess();
     }
+    @GetMapping
+    public RestResponse getCommentList() {
+        return ResponseFactory.responseData(commentService.getCommentList());
+    }
 
 
-//    @GetMapping("{id}")
-//    public CommentRest getCommentById(@PathVariable Long id) {
-//
-//        return commentService.getCommentById(id);
-//    }
+    @GetMapping("{id}")
+    public CommentRest getCommentById(@PathVariable Long id) {
+
+        return commentService.getCommentById(id);
+    }
 //
 //    @PutMapping("{id}")
 //    public void updateCommentById(@PathVariable Long id, @RequestBody CommentDTO commentDTO) {
@@ -46,9 +50,5 @@ public class CommentController {
 //    }
 //
 //
-    @GetMapping
-    public RestResponse getCommentList() {
-        return ResponseFactory.responseData(commentService.getCommentList());
-    }
 
 }

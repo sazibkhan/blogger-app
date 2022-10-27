@@ -14,17 +14,8 @@ GET http://localhost:8080/api/v1/posts
 Content-Type: application/json
 
 
-### PostController::createPost
+### PostController::getPostById
 GET http://localhost:8080/api/v1/posts/1
 Content-Type: application/json
 
 
-
-### PostController::createPost
-UPDATE http://localhost:8080/api/v1/posts/1
-Content-Type: application/json
-
-
-### PostController::createPost
-DELETE http://localhost:8080/api/v1/posts/1
-Content-Type: application/json

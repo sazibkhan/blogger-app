@@ -58,14 +58,14 @@ public class PostService {
         return res;
     }
 
-//    public PostRest getPostById(Long id) {
-//
-//        var postEntity = entityValidationService.validatePost(id);
-//
-//        var response = new PostRest();
-//        BeanUtils.copyProperties(postEntity, response);
-//        return response;
-//    }
+    public PostRest getPostById(Long id) {
+
+        var postEntity = entityValidationService.validatePost(id);
+
+        var response = new PostRest();
+        BeanUtils.copyProperties(postEntity, response);
+        return response;
+    }
 //
 //    public void updatePost(Long id, PostDTO postDTO) {
 //
