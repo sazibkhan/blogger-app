@@ -64,24 +64,24 @@ public class CommentService {
 //
 //
 //
-//    public List<CommentRest> getCommentList() {
-//
-//        return commentRepository.findAll().stream()
-//                .map(itm -> getCommentRest(itm))
-//                .sorted(Comparator.comparing(CommentRest::getComment))
-//                .collect(Collectors.toList());
-//    }
-//
-//
-//    private CommentRest getCommentRest(CommentEntity itm) {
-//        var res = new CommentRest();
-//        BeanUtils.copyProperties(itm, res);
-//        Optional.ofNullable(itm.getPostEntity())
-//                .ifPresent(comment -> {
-//                    res.setPostId(comment.getId());
-//                });
-//        return res;
-//    }
+    public List<CommentRest> getCommentList() {
+
+        return commentRepository.findAll().stream()
+                .map(itm -> getCommentRest(itm))
+                .sorted(Comparator.comparing(CommentRest::getComment))
+                .collect(Collectors.toList());
+    }
+
+
+    private CommentRest getCommentRest(CommentEntity itm) {
+        var res = new CommentRest();
+        BeanUtils.copyProperties(itm, res);
+        Optional.ofNullable(itm.getPostEntity())
+                .ifPresent(comment -> {
+                    res.setPostId(comment.getId());
+                });
+        return res;
+    }
 
 
 

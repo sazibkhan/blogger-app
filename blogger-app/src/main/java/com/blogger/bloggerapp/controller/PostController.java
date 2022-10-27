@@ -20,16 +20,15 @@ public class PostController {
 
     @PostMapping
     public RestResponse createPost(@RequestBody PostDTO postDTO) {
-        System.out.println("Hello");
         postService.createPost(postDTO);
         return ResponseFactory.saveSuccess();
     }
 
-//    @GetMapping
-//    public RestResponse getPostList() {
-//        return ResponseFactory.responseData(postService.getPostList());
-//    }
-//
+    @GetMapping
+    public RestResponse getPostList() {
+        return ResponseFactory.responseData(postService.getPostList());
+    }
+
 //
 //    @GetMapping("{id}")
 //    public PostRest getPostById(@PathVariable Long id) {

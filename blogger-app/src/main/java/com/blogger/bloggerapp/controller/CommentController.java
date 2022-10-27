@@ -46,9 +46,9 @@ public class CommentController {
 //    }
 //
 //
-//    @GetMapping
-//    public RestResponse getCommentList() {
-//        return ResponseFactory.responseData(commentService.getCommentList());
-//    }
+    @GetMapping
+    public RestResponse getCommentList() {
+        return ResponseFactory.responseData(commentService.getCommentList());
+    }
 
 }

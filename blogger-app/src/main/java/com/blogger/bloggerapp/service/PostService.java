@@ -36,6 +36,28 @@ public class PostService {
         postRepository.save(postEntity);
 
     }
+
+
+
+    public List<PostRest> getPostList() {
+
+        return postRepository.findAll().stream()
+                .map(itm -> getPostRest(itm))
+                .sorted(Comparator.comparing(PostRest::getPostTitle))
+                .collect(Collectors.toList());
+    }
+
+
+    private PostRest getPostRest(PostEntity itm) {
+        var res = new PostRest();
+        BeanUtils.copyProperties(itm, res);
+        Optional.ofNullable(itm.getBookEntity())
+                .ifPresent(book -> {
+                    res.setBookId(book.getId());
+                });
+        return res;
+    }
+
 //    public PostRest getPostById(Long id) {
 //
 //        var postEntity = entityValidationService.validatePost(id);
@@ -66,23 +88,5 @@ public class PostService {
 //    }
 
 
-//    public List<PostRest> getPostList() {
-//
-//        return postRepository.findAll().stream()
-//                .map(itm -> getPostRest(itm))
-//                .sorted(Comparator.comparing(PostRest::getPostTitle))
-//                .collect(Collectors.toList());
-//    }
-//
-//
-//    private PostRest getPostRest(PostEntity itm) {
-//        var res = new PostRest();
-//        BeanUtils.copyProperties(itm, res);
-//        Optional.ofNullable(itm.getBookEntity())
-//                .ifPresent(book -> {
-//                    res.setBookId(book.getId());
-//                });
-//        return res;
-//    }
 
 }
