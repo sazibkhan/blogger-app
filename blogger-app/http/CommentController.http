@@ -18,3 +18,11 @@ Content-Type: application/json
 ### CommentController::getCommentById
 GET http://localhost:8080/api/v1/comments/2
 Content-Type: application/json
+
+### CommentController::updateCommentById
+GET http://localhost:8080/api/v1/comments/2
+Content-Type: application/json
+
+### CommentController::deleteCommentById
+GET http://localhost:8080/api/v1/comments/2
+Content-Type: application/json

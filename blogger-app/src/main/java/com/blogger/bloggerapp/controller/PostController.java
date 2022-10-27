@@ -35,13 +35,13 @@ public class PostController {
 
         return postService.getPostById(id);
     }
-//
-//    @PutMapping("{id}")
-//    public void updatePostById(@PathVariable Long id, @RequestBody PostDTO postDTO ) {
-//
-//        postService.updatePost(id, postDTO);
-//    }
-//
+
+    @PutMapping("{id}")
+    public void updatePostById(@PathVariable Long id, @RequestBody PostDTO postDTO ) {
+
+        postService.updatePost(id, postDTO);
+    }
+
     @DeleteMapping("{id}")
     public void deleteCommentById(@PathVariable Long id) {
 
