@@ -66,26 +66,26 @@ public class PostService {
         BeanUtils.copyProperties(postEntity, response);
         return response;
     }
-//
-//    public void updatePost(Long id, PostDTO postDTO) {
-//
-//        var postEntity = entityValidationService.validatePost(id);
-//        var bookEntity = entityValidationService.validateBook(postDTO.getBookId());
-//
-//        postEntity.setPostTitle(postDTO.getPostTitle());
-//        postEntity.setPostBody(postDTO.getPostBody());
-//        postEntity.setBookEntity(bookEntity);
-//
-//        postRepository.save(postEntity);
-//    }
-//
-//    public void deletePostById(Long id) {
-//
-//        var postEntity = entityValidationService.validatePost(id);
-//
-//        postRepository.deleteById(postEntity.getId());
-//
-//    }
+
+    public void updatePost(Long id, PostDTO postDTO) {
+
+        var postEntity = entityValidationService.validatePost(id);
+        var bookEntity = entityValidationService.validateBook(postDTO.getBookId());
+
+        postEntity.setBookEntity(bookEntity);
+        postEntity.setPostTitle(postDTO.getPostTitle());
+        postEntity.setPostBody(postDTO.getPostBody());
+
+        postRepository.save(postEntity);
+    }
+
+    public void deletePostById(Long id) {
+
+        var postEntity = entityValidationService.validatePost(id);
+
+        postRepository.deleteById(postEntity.getId());
+
+    }
 
 
 

@@ -42,12 +42,12 @@ public class PostController {
 //        postService.updatePost(id, postDTO);
 //    }
 //
-//    @DeleteMapping("{id}")
-//    public void deleteCommentById(@PathVariable Long id) {
-//
-//        postService.deletePostById(id);
-//    }
-//
+    @DeleteMapping("{id}")
+    public void deleteCommentById(@PathVariable Long id) {
+
+        postService.deletePostById(id);
+    }
+
 
 
 }

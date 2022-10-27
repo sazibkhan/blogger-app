@@ -36,19 +36,19 @@ public class CommentController {
 
         return commentService.getCommentById(id);
     }
-//
-//    @PutMapping("{id}")
-//    public void updateCommentById(@PathVariable Long id, @RequestBody CommentDTO commentDTO) {
-//
-//        commentService.updateComment(id, commentDTO);
-//    }
-//
-//    @DeleteMapping("{id}")
-//    public void deleteCommentById(@PathVariable Long id) {
-//
-//        commentService.deleteCommitById(id);
-//    }
-//
-//
+
+    @PutMapping("{id}")
+    public void updateCommentById(@PathVariable Long id, @RequestBody CommentDTO commentDTO) {
+
+        commentService.updateComment(id, commentDTO);
+    }
+
+    @DeleteMapping("{id}")
+    public void deleteCommentById(@PathVariable Long id) {
+
+        commentService.deleteCommitById(id);
+    }
+
+
 
 }

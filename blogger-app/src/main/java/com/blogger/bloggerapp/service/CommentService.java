@@ -34,36 +34,7 @@ public class CommentService {
         commentRepository.save(commentEntity);
     }
 
-    public CommentRest getCommentById(Long id) {
 
-        var commentEntity = entityValidationService.validateComment(id);
-
-        var response = new CommentRest();
-        BeanUtils.copyProperties(commentEntity, response);
-        return response;
-    }
-//
-//    public void updateComment(Long id, CommentDTO commentDTO) {
-//
-//        var commentEntity = entityValidationService.validateComment(id);
-//        var postEntity = entityValidationService.validatePost(commentDTO.getPostId());
-//
-//        commentEntity.setId(commentDTO.getPostId());
-//        commentEntity.setComment(commentDTO.getComment());
-//        commentEntity.setPostEntity(postEntity);
-//        commentRepository.save(commentEntity);
-//    }
-//
-//    public void deleteCommitById(Long id) {
-//
-//        var commentEntity = entityValidationService.validateComment(id);
-//
-//        commentRepository.deleteById(commentEntity.getId());
-//
-//    }
-//
-//
-//
     public List<CommentRest> getCommentList() {
 
         return commentRepository.findAll().stream()
@@ -71,8 +42,6 @@ public class CommentService {
                 .sorted(Comparator.comparing(CommentRest::getComment))
                 .collect(Collectors.toList());
     }
-
-
     private CommentRest getCommentRest(CommentEntity itm) {
         var res = new CommentRest();
         BeanUtils.copyProperties(itm, res);
@@ -83,6 +52,40 @@ public class CommentService {
         return res;
     }
 
+
+
+    public CommentRest getCommentById(Long id) {
+
+        var commentEntity = entityValidationService.validateComment(id);
+
+        var response = new CommentRest();
+        BeanUtils.copyProperties(commentEntity, response);
+        return response;
+    }
+
+
+    public void updateComment(Long id, CommentDTO commentDTO) {
+
+        var commentEntity = entityValidationService.validateComment(id);
+        var postEntity = entityValidationService.validatePost(commentDTO.getPostId());
+
+        commentEntity.setComment(commentDTO.getComment());
+        commentEntity.setPostEntity(postEntity);
+        commentRepository.save(commentEntity);
+    }
+
+
+
+    public void deleteCommitById(Long id) {
+
+        var commentEntity = entityValidationService.validateComment(id);
+
+        commentRepository.deleteById(commentEntity.getId());
+
+    }
+
+
+//
 
 
 
